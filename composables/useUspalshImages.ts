@@ -8,26 +8,26 @@ export const useUnsplashImages = () => {
   });
 
   const images = ref<any[]>([]);  // Holds fetched images
-  const loadingImages = ref(false); // Loading state
+  const loading_images = ref(false); // Loading state
 
   const getImages = (search: string = 'African') => {
-    loadingImages.value = true;
+    loading_images.value = true;
     unsplash.search
       .getPhotos({
         query: search,
       })
       .then((response) => {
         images.value = response.response?.results || [];  // Ensure to handle undefined results
-        loadingImages.value = false;
+        loading_images.value = false;
       })
       .catch(() => {
-        loadingImages.value = false;  // Ensure to stop loading on error
+        loading_images.value = false;  // Ensure to stop loading on error
       });
   };
 
   return {
     images,
-    loadingImages,
+    loading_images,
     getImages,
   };
 };
