@@ -1,4 +1,7 @@
 <script setup>
+const props = defineProps({
+  loading: Boolean,
+});
 const image_search_value = ref("");
 </script>
 

@@ -16,16 +16,16 @@ const loading_image = ref(true);
         }
       "
     >
-      <div class="aspect-w-4 aspect-h-3">
+      <div class="aspect-w-4 aspect-h-3 w-full h-full bg-gray-300">
         <div
           v-if="props.loading_image === true"
-          :style="{ width: props.image.width + 'px' }"
+          :style="{ width: props.image?.width + 'px' }"
           class="bg-gray-300 animate-pulse h-64"
         ></div>
         <img
           v-if="props.loading_image === false"
-          :src="props.image.urls.regular"
-          class="w-full h-full object-cover"
+          :src="props.image?.urls.regular"
+          class="object-cover"
           @load="
             () => {
               loading_image = false;
@@ -37,15 +37,21 @@ const loading_image = ref(true);
           class="absolute inset-0 bg-black bg-opacity-50 flex items-end justify-start p-4 text-white text-xl font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         >
           <div class="flex flex-col">
-            <h4 class="font-light">{{ props.image.user.name }}</h4>
-            <p class="text-sm font-semibold">{{ props.image.user.location }}</p>
+            <div v-show="loading_image == false">
+              <h4 class="font-light">{{ props.image?.user.name }}</h4>
+              <p class="text-sm font-semibold">
+                {{ props.image?.user.location }}
+              </p>
+            </div>
+            <div v-show="loading_image == true">
+              <span
+                class="inline-flex h-2 bg-slate-700 items-center w-10 rounded-full px-2 py-1 text-xs font-medium text-gray-600 ring-1 ring-inset ring-gray-500/10"
+              ></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- <div v-show="loading_image == true" class="">
-      <ImageCardLoader :width="props.image.width" v-show="loading_image" />
-    </div> -->
   </div>
 </template>
 
