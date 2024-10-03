@@ -29,25 +29,20 @@ const closeModal = () => {
 
         <!-- Modal body content -->
         <div
-          @click.stop
           class="relative bg-white w-full h-full max-w-4xl mx-auto rounded-lg overflow-hidden flex flex-col"
         >
-          <div class="relative flex-grow">
-            <img
-              :src="props.image.urls.full"
-              class="w-full h-full object-cover"
-            />
-
-            <div
-              class="absolute bottom-0 w-full bg-gradient-to-t from-black to-transparent p-4 text-white"
-            >
-              <h2 class="text-3xl font-bold mb-4">
-                {{ props.image.user.name }}
-              </h2>
-              <p class="text-lg mb-6">
-                {{ props.image.user.location }}
-              </p>
-            </div>
+          <img
+            class="w-full h-5/6 aspect-square object-cover"
+            :src="props.image.urls.regular"
+            alt="Sunset in the mountains"
+          />
+          <div class="px-6 py-4">
+            <h2 class="text-3xl font-bold">
+              {{ props.image.user.name }}
+            </h2>
+            <p class="text-lg mb-6 text-slate-600">
+              {{ props.image.user.location }}
+            </p>
           </div>
         </div>
       </div>
@@ -55,20 +50,4 @@ const closeModal = () => {
   </div>
 </template>
 
-<!-- <script>
-export default {
-  data() {
-    return {
-      isModalOpen: false, // Tracks modal open/close state
-    };
-  },
-  methods: {
-    openModal() {
-      this.isModalOpen = true;
-    },
-    closeModal() {
-      this.isModalOpen = false;
-    },
-  },
-};
-</script> -->
+
