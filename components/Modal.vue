@@ -32,7 +32,7 @@ const closeModal = () => {
           class="relative bg-white w-full h-full max-w-4xl mx-auto rounded-lg overflow-hidden flex flex-col"
         >
           <img
-            class="w-full h-5/6 aspect-square object-cover"
+            class="w-full h-full md:h-5/6 aspect-square object-contain md:object-cover"
             :src="props.image.urls.regular"
             alt="Sunset in the mountains"
           />
