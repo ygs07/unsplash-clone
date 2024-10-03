@@ -8,7 +8,7 @@ export const useUnsplashImages = () => {
   });
 
   const images = ref<any[]>([]);  // Holds fetched images
-  const loading_images = ref(false); // Loading state
+  const loading_images = ref(true); // Loading state
 
   const getImages = (search: string = 'African') => {
     loading_images.value = true;
