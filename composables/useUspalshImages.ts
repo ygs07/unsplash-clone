@@ -18,7 +18,6 @@ export const useUnsplashImages = () => {
       })
       .then((response) => {
         images.value = response.response?.results || [];  // Ensure to handle undefined results
-        loading_images.value = false;
       })
       .catch(() => {
         loading_images.value = false;  // Ensure to stop loading on error

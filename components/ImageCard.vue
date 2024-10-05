@@ -18,16 +18,17 @@ const loading_image = ref(true);
     >
       <div class="aspect-w-4 aspect-h-3 w-full h-full bg-gray-300">
         <div
-          v-if="props.loading_image === true"
+          v-show="props.loading_image === true"
           :style="{ width: props.image?.width + 'px' }"
           class="bg-gray-300 animate-pulse h-64"
         ></div>
         <img
-          v-if="props.loading_image === false"
+          v-show="props.loading_image === false"
           :src="props.image?.urls.regular"
           class="object-cover"
           @load="
             () => {
+              console.log('sas');
               loading_image = false;
               $emit('imagesLoaded');
             }
